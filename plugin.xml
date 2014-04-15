@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+		xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.mediamatrixdoo.keepscreenon"
+    version="1.0.1">
+
+	<name>KeepScreenOn</name>
+	<description>Keeps the display on</description>
+	<license>MIT</license>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>    
+
+	<js-module src="www/keepscreenon.js" name="keepscreenon">
+		<clobbers target="keepscreenon" />
+	</js-module>
+    
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="KeepScreenOn">
+				<param name="ios-package" value="KeepScreenOn" />
+			</feature>
+		</config-file>
+      
+		<header-file src="src/ios/KeepScreenOn.h" />
+		<source-file src="src/ios/KeepScreenOn.m" compiler-flags="-fno-objc-arc" />
+	</platform>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="KeepScreenOn">   
+				<param name="android-package" value="com.mediamatrixdoo.keepscreenon"/>
+			</feature>
+		</config-file>
+		
+		<source-file src="src/android/com/mediamatrixdoo/keepscreenon/KeepScreenOn.java" target-dir="src/com/mediamatrixdoo/keepscreenon" />
+	</platform>
+</plugin>   
+    
