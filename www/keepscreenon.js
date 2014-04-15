@@ -6,23 +6,27 @@ function keepScreenOn () {
 * Acquire a screenlock (prevent the device from screen idle)
 */
 keepScreenOn.prototype.enable = function () {
-	this.screenOnFlag = true;
-	cordova.exec(null, null, 'KeepScreenOn', 'enable', []);
+	if (this.screenOnFlag == false) {
+		this.screenOnFlag = true;
+		cordova.exec(null, null, 'KeepScreenOn', 'enable', []);
+	}
 };
 
 /*
 * Release the screenlock (enable the device screen to idle)
 */
 keepScreenOn.prototype.disable = function () {
-	this.screenOnFlag = false;
-	cordova.exec(null, null, 'KeepScreenOn', 'disable', []);
+	if (this.screenOnFlag == true) {
+		this.screenOnFlag = false;
+		cordova.exec(null, null, 'KeepScreenOn', 'disable', []);
+	}
 }
 
 /*
 *	Toggle the screenlock
 */
 keepScreenOn.prototype.toggle = function () {
-	if(this.screenOnFlag) {
+	if (this.screenOnFlag == true) {
 		this.disable();
 	} else {
 		this.enable();
