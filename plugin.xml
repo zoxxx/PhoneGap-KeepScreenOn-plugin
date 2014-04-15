@@ -31,7 +31,7 @@
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="KeepScreenOn">   
-				<param name="android-package" value="com.mediamatrixdoo.keepscreenon"/>
+				<param name="android-package" value="com.mediamatrixdoo.keepscreenon.KeepScreenOn"/>
 			</feature>
 		</config-file>
 		
