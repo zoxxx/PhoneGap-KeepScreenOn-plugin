@@ -26,7 +26,7 @@
 
     UIApplication* app = [UIApplication sharedApplication];
     
-    if( ![app isIdleTimerDisabled] ) {
+    if( [app isIdleTimerDisabled] ) {
         [app setIdleTimerDisabled:false];
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"IdleTime Enabled"];
